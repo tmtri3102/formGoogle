@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Document</title>
+	</head>
+	<body>
+		<h1>Bài tập tạo form tìm kiếm Google</h1>
+		<h3>Em nghịch thêm Javascript để search Google luôn ạ</h3>
+		<form id="search-form">
+			<input
+				type="text"
+				placeholder=""
+				id="search-input"
+			/>
+			<input
+				type="submit"
+				value="Tìm kiếm"
+			/>
+		</form>
+
+		<script>
+			const form = document.getElementById("search-form");
+			const input = document.getElementById("search-input");
+
+			form.addEventListener("submit", (e) => {
+				e.preventDefault();
+				let query = input.value.trim();
+				// form.action = `https://www.google.com/search?q=${query}`;
+				const url = `https://www.google.com/search?q=${encodeURIComponent(
+					query
+				)}`;
+				window.open(url, "_blank");
+				console.log(query);
+				console.log(url);
+			});
+		</script>
+	</body>
+</html>
